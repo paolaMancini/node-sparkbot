@@ -11,7 +11,7 @@
     "ChatBot"
   ],
   "scripts": {
-    "start": "node tests/onEvent-all-all.js
+    "start": "node tests/onEvent-all-all.js"
   },
   "homepage": "https://github.com/CiscoDevNet/node-sparkbot#readme",
   "repository": {
