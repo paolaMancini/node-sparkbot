@@ -38,6 +38,7 @@ bot.onCardSubmission(function (trigger, attachmentActions) {
    console.log(`new attachmentActions from personId: ${trigger.data.personId} , with inputs`);
    Object.keys(attachmentActions.inputs).forEach(prop => {
       console.log(`   ${prop}: ${attachmentActions.inputs[prop]}`);
+      
    });
 
 });
@@ -50,5 +51,6 @@ bot.onMessage(function (trigger, message) {
    // ADD YOUR CUSTOM CODE HERE
    //
    console.log("new message from: " + trigger.data.personEmail + ", text: " + message.text);
+   console.log("detected command: " + command.keyword + ", with args: " + JSON.stringify(command.args));
 });
 
