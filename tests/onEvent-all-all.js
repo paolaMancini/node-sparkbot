@@ -13,6 +13,20 @@ var SparkBot = require("../sparkbot/webhook");
 // Starts your Webhook with default configuration 
 var bot = new SparkBot();
  
+// Create webhook
+const publicURL = process.env.PUBLIC_URL || "https://d3fc85fe.ngrok.io";
+bot.secret = process.env.WEBHOOK_SECRET || "not THAT secret";
+bot.createOrUpdateWebhook("register-bot", publicURL, "attachmentActions", "created", null, bot.secret, function (err, webhook) {
+   if (err) {
+      console.error("could not create Webhook, err: " + err);
+
+      // Fail fast
+      process.exit(1);
+   }
+
+   console.log("webhook successfully checked, with id: " + webhook.id);
+});
+
 bot.onEvent("all", "all", function(trigger) {
   
     //
